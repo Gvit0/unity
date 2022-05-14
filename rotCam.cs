@@ -6,8 +6,10 @@ public class rotCam : MonoBehaviour
 {   
     float xRot;
     float yRot;
+    
     public GameObject cam;
     public GameObject GamObj;
+    public float sensitivity;
     void Start()
     {
         
@@ -18,7 +20,7 @@ public class rotCam : MonoBehaviour
     {
         xRot += Input.GetAxis("Mouse X");
         yRot += Input.GetAxis("Mouse Y");
-        cam.transform.rotation = Quaternion.Euler(-yRot, xRot, 0f);
-        GamObj.transform.rotation = Quaternion.Euler(0f, xRot, 0f);
+        cam.transform.rotation = Quaternion.Euler(-yRot / 3 * sensitivity, 0f, 0f);
+        GamObj.transform.rotation = Quaternion.Euler(0f, xRot / 3 * sensitivity, 0f);
     }
 }
